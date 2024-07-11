@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-full flex flex-col gap-10">
+    <div className="w-full flex flex-col gap-10 scroll-smooth">
       <Hero />
       <SkillsAndExperience />
       <Portfolio />

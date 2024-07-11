@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from './ui/button'
 import { FaLocationArrow } from "react-icons/fa6"
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -13,10 +14,14 @@ const Hero = () => {
         usually about whatever I&apos;m interested in at the time. <br className='max-sm:hidden' />
       </div>
       <div className="sm:block hidden">
-        <Button size="xl2" className="mt-5">See my Work <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        <Link href="#portfolio">
+          <Button size="xl2" className="mt-5">See my Work <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        </Link>
       </div>
       <div className="sm:hidden block">
-        <Button size="lg" className="mt-5">See my Work <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        <Link href="#portfolio">
+          <Button size="lg" className="mt-5">See my Work <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        </Link>
       </div>
     </section>
   )

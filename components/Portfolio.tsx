@@ -3,6 +3,7 @@ import Title from './Title'
 import PortfolioCarousel from './PortfolioCarousel'
 import { Button } from './ui/button'
 import { FaLocationArrow } from 'react-icons/fa6'
+import Link from 'next/link'
 
 const Portfolio = () => {
   return (
@@ -12,10 +13,14 @@ const Portfolio = () => {
       <PortfolioCarousel />
 
       <div className="sm:block hidden">
-        <Button size="xl2" className="mt-20">View More Projects <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        <Link href="/projects">
+          <Button size="xl2" className="mt-20">View More Projects <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        </Link>
       </div>
       <div className="sm:hidden block">
-        <Button size="lg" className="mt-20">View More Projects <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        <Link href="/projects">
+          <Button size="lg" className="mt-20">View More Projects <FaLocationArrow className="ml-3 -mr-1" /></Button>
+        </Link>
       </div>
       
     </section>
