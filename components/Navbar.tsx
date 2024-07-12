@@ -3,22 +3,38 @@ import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 const Navbar = () => {
 
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-
+  const pathname = usePathname()
+  
   function handleOpenResume() {
     console.log("Opening resume... (not yet implemented)")
   }
+  
+  const removeLeadingPath = (path: string): string => {
+    // Regex to match / or /folder/
+    const regex = /^\/(?:[^\/]+\/)?/;
+    // Remove the matched part from the path
+    return path.replace(regex, '');
+  };
+  
+  const currentPage = removeLeadingPath(pathname)
 
   return (
     <section className="flex justify-between h-[40px] w-full">
       <div className="text-2xl font-bold flex self-center pl-2 max-sm:invisible max-sm:w-0">
         <Link href="/">
-          Cameron Jack
+          Cameron Jack {
+          currentPage === "privacy" 
+          ? <span className="font-medium">| Privacy </span>
+          : (currentPage === "projects" || pathname.includes("projects")) ? <Link href="/projects" className="font-medium">| Portfolio </Link>
+          : currentPage === "bugreport" ? <span className="font-medium">| Feedback </span>
+          : ""
+        }
         </Link>
       </div>
 
