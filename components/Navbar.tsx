@@ -32,7 +32,7 @@ const Navbar = () => {
           currentPage === "privacy" 
           ? <span className="font-medium">| Privacy </span>
           : (currentPage === "projects" || pathname.includes("projects")) ? <Link href="/projects" className="font-medium">| Portfolio </Link>
-          : currentPage === "bugreport" ? <span className="font-medium">| Feedback </span>
+          : (currentPage === "feedback" || currentPage === "bugreport") ? <span className="font-medium">| Feedback </span>
           : ""
         }
         </Link>

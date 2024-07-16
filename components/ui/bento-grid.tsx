@@ -6,6 +6,8 @@ import Image from "next/image";
 import BentoGraph from "../BentoGraph";
 import BinaryBackground from "../BinaryBackground";
 import { useState } from "react";
+import GridBackground from "../GridBackground";
+import GraphBackground from "../GraphBackground";
 
 export const BentoGrid = ({
   className,
@@ -31,6 +33,7 @@ export const BentoGridItem = ({
   id,
   title,
   description,
+  content,
   header,
   icon,
 }: {
@@ -38,10 +41,12 @@ export const BentoGridItem = ({
   id: number;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
+  content?: string[];
   header?: React.ReactNode;
   icon?: React.ReactNode;
 }) => {
-  const [isHovering, setIsHovering] = useState<boolean>(false);
+  const [isHovering, setIsHovering] = useState<number>(-1);
+  const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   let bg = ""
   let titleText = ""
@@ -84,43 +89,47 @@ export const BentoGridItem = ({
 
   function handleOpenCard(id: number) {
     console.log(`Opening card ${id}... (not yet implemented)`)
+    setIsFlipped(!isFlipped)
   }
 
   function handleMouseEnter() {
-    if (id === 6) {
-      setIsHovering(true)
-    }
+    setIsHovering(id)
   }
 
   function handleOnMouseLeave() {
-    if (id === 6) {
-      setIsHovering(false)
-    }
+      setIsHovering(-1)
   }
+  
 
 
   return (
-    <div
-      className={cn(
-        "overflow-hidden relative z-10 row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 pl-6 border border-transparent flex flex-col justify-end",
-        className, bg
-      )}
-      onMouseEnter={() => handleMouseEnter()}
-      onMouseLeave={() => handleOnMouseLeave()}
-    >
-      <div className="z-10 absolute top-3 right-3 opacity-100 border border-[#eeeeee] rounded-full">
-        <div className=""><div onClick={() => handleOpenCard(id)} className="w-[34px] h-[34px] rounded-[50%] bg-white hover:bg-[#eeeeee] hover:cursor-pointer opacity-50 flex items-center justify-center"><FaPlus className="opacity-100 z-20 text-[#454545]" /></div></div>
-      </div>
-      <div className={`z-10 ${titleText}`}>
-        <div className={`text-base font-medium leading-tight ${subtitleText}`}>
-          {description}
+    <>
+      {/* FRONT SIDE */}
+      <div
+        className={cn(
+          "overflow-hidden relative z-10 row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 pl-6 border border-transparent flex flex-col justify-end",
+          className, bg, `${id === 2 && "!bg-[#75A8D3] bg-grid-medium-white/[0.5]"}`, 
+          `${id === 5 && "!bg-[#78286C] bg-dot-white/[0.4]"}`,
+          `${isFlipped && "hidden"}`
+        )}
+        onMouseEnter={() => handleMouseEnter()}
+        onMouseLeave={() => handleOnMouseLeave()}
+      >
+        <div>
+          
         </div>
-        <div className={`text-3xl font-bold mb-2`}>
-          {title}
+        <div className="z-10 absolute top-3 right-3 opacity-100 border border-[#eeeeee] rounded-full">
+          <div className=""><div onClick={() => handleOpenCard(id)} className="w-[34px] h-[34px] rounded-[50%] bg-white hover:bg-[#eeeeee] hover:cursor-pointer opacity-50 flex items-center justify-center"><FaPlus className="opacity-100 z-20 text-[#454545]" /></div></div>
         </div>
-      </div>
-      {
-        (id === 1 || id === 3) && (
+        <div className={`z-10 ${titleText}`}>
+          <div className={`text-base font-medium leading-tight ${subtitleText}`}>
+            {description}
+          </div>
+          <div className={`text-3xl font-bold mb-2`}>
+            {title}
+          </div>
+        </div>
+        {(id === 1 || id === 3) && (
           <Image 
             src="/topography.png"
             width={348}
@@ -128,45 +137,65 @@ export const BentoGridItem = ({
             alt="topography background"
             className="absolute top-0 left-0 z-index-0"
           />
-        )
-      }
-      {
-        (id === 5) && (
-          <Image 
-            src="/polkadots.png"
-            fill
-            alt="polka dot background"
-            className="absolute top-0 left-0 z-index-0 opacity-[40%]"
-          />
-        )
-      }
-      {
-        (id === 6) && (
+        )}
+        {(id === 6) && (
           <BinaryBackground isHovering={isHovering} />
-        )
-      }
-      { /* WEB DEVELOPMENT STACKS */
-        (id === 4) && (
-          <div className="flex gap-2 w-fit absolute -right-1 -bottom-2 max-md:text-sm text-[#454545] font-medium">
-            <div className="flex flex-col gap-2 text-center">
-              {["Next.js", "React", "TypeScript", "Firebase"].map((item, i) => (
-                <span key={i} className="bg-white opacity-50 rounded-lg py-2 px-6 hover:opacity-60 hover:scale-110 duration-100">{item}</span>
-              ))}
-            </div>
+        )}
+        { /* WEB DEVELOPMENT STACKS */
+          (id === 4) && (
+            <div className="flex gap-2 w-fit absolute -right-1 -bottom-2 max-md:text-sm text-[#454545] font-medium">
+              <div className="flex flex-col gap-2 text-center">
+                {["Next.js", "React", "TypeScript", "Firebase"].map((item, i) => (
+                  <span key={i} className="bg-white opacity-50 rounded-lg py-2 px-6 hover:opacity-60 hover:scale-110 duration-100">{item}</span>
+                ))}
+              </div>
 
-            <div className="flex flex-col gap-2 text-center mt-5 max-md:mt-4">
-              {["Vue", "Tailwind", "d3.js", "shadcn"].map((item, i) => (
-                <span key={i} className="bg-white opacity-50 rounded-lg py-2 px-6 hover:opacity-60 hover:scale-110 duration-100">{item}</span>
-              ))}
+              <div className="flex flex-col gap-2 text-center mt-5 max-md:mt-4">
+                {["Vue", "Tailwind", "d3.js", "shadcn"].map((item, i) => (
+                  <span key={i} className="bg-white opacity-50 rounded-lg py-2 px-6 hover:opacity-60 hover:scale-110 duration-100">{item}</span>
+                ))}
+              </div>
             </div>
+          )
+        }
+        { /* COMPLEX PROJECTS GRAPH */
+          (id === 0) && (
+            <BentoGraph />
+          )
+        }
+      </div>
+
+
+
+
+
+      {/* FLIP SIDE */}
+      <div
+        className={cn(
+          "overflow-hidden relative z-50 row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 pl-6 border border-transparent flex flex-col",
+          className, bg, `${!isFlipped && "hidden"}`,
+          `${(id === 5 || id === 6) && "p-2 pl-3 h-[300px] w-[200px]"}`,
+          `${(id === 1 || id === 2 || id === 3) && "h-[400px]"}`
+        )}
+        onMouseEnter={() => handleMouseEnter()}
+        onMouseLeave={() => handleOnMouseLeave()}
+      >
+        <div>
+          
+        </div>
+        <div className="z-10 absolute top-3 right-3 opacity-100 border border-[#eeeeee] rounded-full">
+          <div className=""><div onClick={() => handleOpenCard(id)} className="w-[34px] h-[34px] rounded-[50%] bg-white hover:bg-[#eeeeee] hover:cursor-pointer opacity-50 flex items-center justify-center"><FaPlus className="opacity-100 z-20 text-[#454545] rotate-45" /></div></div>
+        </div>
+        <div className={`z-10 w-[88%] ${titleText} ${(id === 5 || id === 6) && "clear-right"}`}>
+          <div className={`text-sm font-medium leading-tight ${subtitleText}`}>
+            {content && content.map((paragraph) => (
+              <p className="pb-2">{paragraph}</p>
+            ))}
           </div>
-        )
-      }
-      { /* COMPLEX PROJECTS GRAPH */
-        (id === 0) && (
-          <BentoGraph />
-        )
-      }
-    </div>
+        </div>
+        
+      </div>
+    </>
+      
   );
 };

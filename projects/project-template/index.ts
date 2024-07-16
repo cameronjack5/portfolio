@@ -27,25 +27,113 @@ export const project_template = {
   },
   bibliography: [
     {
+      type: "book",
       id: 0,
-      author: "Donald E. Knuth",
-      source: "The Art of Computer Programming, p. 109",
-      copyright: "Addison-Wesley, 1968",
-      accessedOn: "2024-06-02",
+      authors: [
+        {
+          firstName: "Donald",
+          lastName: "Knuth",
+        }
+      ],
+      title: "The Art of Computer Programming",
+      pages: "p. 109-116",
+      publisher: "Addison-Wesley",
+      year: 1968,
+      isbn: "0-201-03801-3",
     },
     {
+      type: "website",
       id: 1,
-      author: "Donald E. Knuth",
-      source: "The Art of Computer Programming, p. 109",
-      copyright: "Addison-Wesley, 1968",
-      accessedOn: "2024-06-02",
+      authors: [
+        {
+          firstName: "John",
+          lastName: "Doe",
+        },
+        {
+          firstName: "Alex",
+          lastName: "Smith",
+        },
+      ],
+      website: "Some Guy's Random Website",
+      title: "How to Write a Good Reference",
+      url: "https://www.example.com/how-write-good-reference",
+      dateAccessed: "2024-07-16",
     },
     {
+      type: "journal",
       id: 2,
-      author: "Donald E. Knuth",
-      source: "The Art of Computer Programming, p. 109",
-      copyright: "Addison-Wesley, 1968",
-      accessedOn: "2024-06-02",
+      authors: [
+        {
+          firstName: "Linda",
+          lastName: "Brown",
+        }
+      ],
+      title: "Scientific Discussions in Casual Contexts",
+      journal: "British Journal of Science",
+      volume: 29,
+      number: 5,
+      year: 2024,
+      pages: "p. 11-55",
+      doi: "10.1016/j.bjos.2024.05.004",
+      onlineInfo: {
+        url: "https://www.edtechjournal.com/article",
+        dateAccessed: "2024-07-16",
+      }
+    },
+    {
+      type: "journal",
+      id: 3,
+      authors: [
+        {
+          firstName: "James",
+          lastName: "Black",
+        },
+        {
+          firstName: "Daniela",
+          lastName: "Green",
+        },
+      ],
+      title: "Cognitive Behaviour in University Students",
+      journal: "Edinburgh Science Journal",
+      volume: 11,
+      number: 2,
+      year: 2022,
+      pages: "p. 78-105",
+      doi: "10.1091/j.edinsj.2022.02.009",
+    },
+    {
+      type: "news",
+      id: 4,
+      authors: [
+        {
+          firstName: "Peter",
+          lastName: "String",
+        }
+      ],
+      title: "The UK's New Tech Grants Explained",
+      organisation: "BBC",
+      date: "2024-06-24",
+    },
+    {
+      type: "news",
+      id: 5,
+      authors: [
+        {
+          firstName: "Andrew",
+          lastName: "Stirling",
+        },
+        {
+          firstName: "Lina",
+          lastName: "Bench",
+        }
+      ],
+      title: "Small Tech Company Nobody Has Ever Heard of Goes Bankrupt",
+      organisation: "The New York Times",
+      date: "2023-08-05",
+      onlineInfo: {
+        url: "https://www.nyt.com",
+        dateAccessed: "2024-06-24",
+      }
     },
   ]
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const BinaryBackground = ({ isHovering }: { isHovering: boolean }) => {
+const BinaryBackground = ({ isHovering }: { isHovering: number }) => {
   const [binaryGrid, setBinaryGrid] = useState<string[][]>([]);
   const gridSizeY = 6; // Define the grid size
   const gridSizeX = 100;
@@ -13,7 +13,7 @@ const BinaryBackground = ({ isHovering }: { isHovering: boolean }) => {
   }, []);
 
   useEffect(() => {
-    if (isHovering) {
+    if (isHovering === 6) {
       const interval = setInterval(() => {
         const newGrid = binaryGrid.map(row => row.slice()); // Copy the grid
 
@@ -37,9 +37,9 @@ const BinaryBackground = ({ isHovering }: { isHovering: boolean }) => {
   
 
   return (
-    <div className="opacity-40 cursor-default select-none absolute top-0 left-0 z-5 w-full h-full grid grid-cols-20 grid-rows-20">
+    <div className="opacity-30 text-white cursor-default select-none absolute top-0 left-0 z-5 w-full h-full grid grid-cols-20 grid-rows-20">
       {binaryGrid.map((row, rowIndex) =>
-        <div className="flex">
+        <div key={rowIndex} className="flex">
           {row.map((digit, colIndex) => (
             <span
               key={`${rowIndex}-${colIndex}`}

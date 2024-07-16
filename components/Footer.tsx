@@ -22,7 +22,7 @@ const Footer = () => {
     <footer className="flex justify-between text-center text-sm max-md:flex-col bottom-0 items-center">
       <div className="flex-1 font-semibold order-1 max-md:order-2 text-left max-md:text-center">
         <a href="/privacy" className="pr-5">Privacy Policy</a>
-        <a href="/bugreport" className="pl-5">Report a Bug</a>
+        <a href="/feedback" className="pl-5">Send Feedback</a>
       </div>
 
       <div className="flex-1 text-secondary font-medium order-2 max-md:order-3">
