@@ -9,7 +9,7 @@
       --foreground: 0 0% 27%;
 
       --card: 0 0% 100%;
-      --card-foreground: 222.2 84% 4.9%;
+      --card-foreground: 0 0% 27%;
 
       /* Portfolio Cover Page */
       --portfolio-card-bg: 0 0% 27%;
@@ -39,8 +39,8 @@
       --destructive-foreground: 210 40% 98%;
 
       --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%; /* Border color for inputs such as <Input />, <Select />, <Textarea /> */
-      --ring: 222.2 84% 4.9%;
+      --input: 0 0% 80%; /* Border color for inputs such as <Input />, <Select />, <Textarea /> */
+      --ring: 0 0% 27%; /* Outline for inputs such as <Input /> */
       --radius: 0.5rem;
 
       --chart-1: 12 76% 61%;
@@ -55,8 +55,8 @@
      --background: 0 0% 11%;
      --foreground: 0 0% 93%;
 
-     --card: 0 0% 100%;
-     --card-foreground: 222.2 84% 4.9%;
+     --card: 0 0% 11%;
+     --card-foreground: 0 0% 93%;
 
      /* Portfolio Cover Page */
      --portfolio-card-bg: 0 0% 100%;
@@ -64,30 +64,30 @@
      --portfolio-card-secondary: 0 0% 53%;
      
      /* Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover /> */
-     --popover: 0 0% 100%;
-     --popover-foreground: 222.2 84% 4.9%;
+     --popover: 0 0% 11%;
+     --popover-foreground: 0 0% 93%;
 
      --primary: 0 0% 100%; /* Button bg */
      --primary-foreground: 0 0 11%; /* Button text */
 
      /* Secondary colors for <Button /> */
      --secondary: 0 0% 73%;
-     --secondary-foreground: 222.2 47.4% 11.2%;
+     --secondary-foreground: 0 0% 11%;
 
      /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
-     --muted: 210 40% 96.1%;
-     --muted-foreground: 215.4 16.3% 46.9%;
+     --muted: 0 0% 50%;
+     --muted-foreground: 0 0% 60%;
 
      /* Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc */
-     --accent: 210 40% 96.1%;
-     --accent-foreground: 222.2 47.4% 11.2%;
+     --accent: 0 0% 15%;
+     --accent-foreground: 0 0% 93%;
 
      --destructive: 0 84.2% 60.2%;
      --destructive-foreground: 210 40% 98%;
 
      --border: 214.3 31.8% 91.4%;
-     --input: 214.3 31.8% 91.4%; /* Border color for inputs such as <Input />, <Select />, <Textarea /> */
-     --ring: 222.2 84% 4.9%;
+     --input: 0 0% 40%; /* Border color for inputs such as <Input />, <Select />, <Textarea /> */
+     --ring: 0 0% 93%; /* Outline for inputs such as <Input /> */
      --radius: 0.5rem;
 
      --chart-1: 12 76% 61%;

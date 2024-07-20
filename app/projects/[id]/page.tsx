@@ -12,8 +12,8 @@ const Page = ({ params }: { params: { id: string } }) => {
         </div>
 
         <div className="text-5xl font-bold">
-          {project.title.map((line) => (
-            <span>{line} </span>
+          {project.title.map((line, index) => (
+            <span key={index}>{line} </span>
           ))}
         </div>
 
@@ -25,23 +25,23 @@ const Page = ({ params }: { params: { id: string } }) => {
 
       <div className="md:text-lg font-medium leading-snug">
         <div className="text-2xl font-bold pb-3 mb-3 border-projectCard-secondary border-b">Abstract</div>
-        {project.text.abstract.map((line) => (
-          <span>{line}<br /><br /></span>
+        {project.text.abstract.map((line, index) => (
+          <span key={index}>{line}<br /><br /></span>
         ))}
         <br /><br />
         <div className="text-2xl font-bold pb-3 mb-3 border-projectCard-secondary border-b">Introduction</div>
-        {project.text.introduction.map((line) => (
-          <span>{line}<br /><br /></span>
+        {project.text.introduction.map((line, index) => (
+          <span key={index}>{line}<br /><br /></span>
         ))}
         <br /><br />
         <div className="text-2xl font-bold pb-3 mb-3 border-projectCard-secondary border-b">Main Article</div>
-        {project.text.main.map((line) => (
-          <span>{line}<br /><br /></span>
+        {project.text.main.map((line, index) => (
+          <span key={index}>{line}<br /><br /></span>
         ))}
         <br /><br />
         <div className="text-2xl font-bold pb-3 mb-3 border-projectCard-secondary border-b">Conclusion</div>
-        {project.text.conclusion.map((line) => (
-          <span>{line}<br /><br /></span>
+        {project.text.conclusion.map((line, index) => (
+          <span key={index}>{line}<br /><br /></span>
         ))}
         <br /><br />
         <div className="text-primary font-semibold">Written by {project.author}</div>
@@ -50,13 +50,13 @@ const Page = ({ params }: { params: { id: string } }) => {
         <div className="text-2xl font-bold pb-3 mb-3 border-projectCard-secondary border-b mt-20">Bibliography</div>
         <div className="text-base">
           {project.bibliography.map((bib) => (
-            <div className="flex mt-4">
+            <div key={bib.id} className="flex mt-4">
               <div className="w-[80px] min-w-[80px] max-sm:min-w-[40px] max-sm:w-[40px]"> [{bib.id}] </div>
               {
                   bib.type === "book" 
                   ? <div> 
                       {bib.authors.map((author, index) => (
-                        <span>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
+                        <span key={index}>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
                       ))}.
                       <i> {bib.title}</i>,
                       <span> {bib.pages}.</span>
@@ -68,9 +68,9 @@ const Page = ({ params }: { params: { id: string } }) => {
                   : bib.type === "website"
                     ? <div> 
                         {bib.authors.map((author, index) => (
-                          <span>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
+                          <span key={index}>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
                         ))}.
-                        <span> "{bib.title}"</span>.
+                        <span> &quot;{bib.title}&quot;</span>.
                         <i> {bib.website}</i>.
                         <span> <Link className="underline" href={bib.url}>{bib.url}</Link></span>
                         <span> (accessed on: {bib.dateAccessed})</span>. 
@@ -78,9 +78,9 @@ const Page = ({ params }: { params: { id: string } }) => {
                     : bib.type === "journal"
                       ? <div> 
                           {bib.authors.map((author, index) => (
-                            <span>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
+                            <span key={index}>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
                           ))}.
-                          <span> "{bib.title}."</span>
+                          <span> &quot;{bib.title}.&quot;</span>
                           <i> {bib.journal}</i>,
                           <span> vol. {bib.volume},</span>
                           <span> no. {bib.number}</span>
@@ -95,9 +95,9 @@ const Page = ({ params }: { params: { id: string } }) => {
                       : bib.type === "news"
                         ? <div> 
                             {bib.authors.map((author, index) => (
-                              <span>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
+                              <span key={index}>{author.lastName}, {author.firstName}{(bib.authors.length > 1 && index < bib.authors.length-1) && <span>; </span> }</span>
                             ))}.
-                            <span> "{bib.title}."</span>
+                            <span> &quot;{bib.title}.&quot;</span>
                             <i> {bib.organisation}</i>,
                             <span> {bib.date}</span>
                             {

@@ -1,9 +1,10 @@
 "use client"
 import React, { useState } from 'react'
 import { Button } from './ui/button'
-import { Loader2 } from 'lucide-react'
+import { ArrowUpRight, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { FaArrowUp } from 'react-icons/fa6'
 
 const Navbar = () => {
 
@@ -25,8 +26,8 @@ const Navbar = () => {
   const currentPage = removeLeadingPath(pathname)
 
   return (
-    <section className="flex justify-between h-[40px] w-full">
-      <div className="text-2xl font-bold flex self-center pl-2 max-sm:invisible max-sm:w-0">
+    <section className="flex max-sm:flex-col justify-between h-[40px] w-full">
+      <div className="text-2xl font-bold flex self-center pl-2 max-sm:pb-4">
         <Link href="/">
           Cameron Jack {
           currentPage === "privacy" 
@@ -38,7 +39,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex gap-5 max-sm:text-sm">
+      <div className="flex md:gap-8 gap-5 max-sm:text-sm">
         {/*
         <Link href={"#about-me"} className={`flex self-center`}>About Me</Link>
         <Link href={"#skills-and-experience"} className={`flex self-center`}>Skills & Experience</Link>
@@ -47,9 +48,10 @@ const Navbar = () => {
         <Link href={"#contact"} className={`flex self-center`}>Contact</Link>
         */}
 
-        <Link href={"/projects"} className={`flex self-center`}>Projects</Link> 
-        <Link href={"/contact"} className={`flex self-center`}>Contact</Link> 
-          
+        <Link href={"/projects"} className={`flex self-center items-end h-[24px]`}>Projects</Link> 
+        <Link href={"https://github.com/cameronjack5"} className={`flex self-center items-end`}>Github<sup><ArrowUpRight className="text-secondary scale-75 -ml-[2px]" /></sup></Link> 
+        <Link href={"https://www.linkedin.com/in/cameron-jack-280a1b29a/"} className={`flex self-center items-end`}>LinkedIn<sup><ArrowUpRight className="text-secondary scale-75 -ml-[2px]" /></sup></Link> 
+
         <Button onClick={() => handleOpenResume()} disabled={isLoading}>
           {
             isLoading ? (

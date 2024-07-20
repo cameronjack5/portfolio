@@ -39,9 +39,8 @@ const items = [
     title: "Learn Quickly",
     description: "I learn best through experience",
     content: [
-      "I love to learn, usually about random, seemingly disjoint subjects, like trees, nuclear power, sleep, or film-making.",
-      "This disjoint collection of interests helps connect the dots in ways I wouldn't have thought of otherwise and has become a great asset.",
-      //."I find my scatterbrained ideas to be a real asset to my critical thinking skills.",
+      "I love learning about diverse and often random subjects, from trees or nuclear power to sleep or filmmaking.",
+      "My wide-ranging interests provide a unique perspective, connecting unrelated dots and enhancing my critical thinking and problem-solving skills.",
     ],
     bg: "#FFD700",
     text: {primary: "#454545", secondary: "rgba(0,0,0,0.4)"}
@@ -50,9 +49,8 @@ const items = [
     title: "Data Science & Analytics",
     description: "Python, R, Matplotlib",
     content: [
-      //"Data science and analytics are some of my main strengths.",
-      "I have extensive academic, industry, and personal experience in creating, manipulating, analysing, and visualising large amounts of data.",
-      "I have a deep understanding of the data science best practices to minimise risk and misinterpretations of data, while keeping it simple and accessible.",
+      "I have experience creating, analyzing, and visualizing large datasets, with a strong grasp of best practices to minimize risk and misinterpretation.",
+      "My work includes university courses with excellent grades and personal projects like my survey website (linked in my portfolio).",
     ],
     bg: "#75A8D3",
     text: {primary: "#ffffff", secondary: "rgba(1,1,1,0.5)"}
@@ -61,9 +59,8 @@ const items = [
     title: "Object Oriented Programming",
     description: "Java",
     content: [
-      //"I've used Java extensively, both in academia and for personal projects.",
-      "Through academic experience, I'm very comfortable with the Object Oriented Programming paradigm as well as design standards.",
-      "Various projects have given me experience with creating, understanding, and implementing designs and program specification documents.",
+      "I can handle large-scale projects or extend existing ones based on design documents and customer research.",
+      "I'm proficient in Object-Oriented Programming and design standards, with experience in creating and implementing design and program specification documents.",
     ],
     bg: "#E76F00",
     text: {primary: "#ffffff", secondary: "rgba(1,1,1,0.5)"}
@@ -78,7 +75,7 @@ const items = [
     title: "Haskell",
     description: "Functional Programming",
     content: [
-      "I mainly have experience working with Haskell in an academic context, but with the skills to implement real-world solutions in the functional paradigm."
+      "I have experience with Haskell primarily in an academic context, but with the skills to implement effective solutions to real-world problems in the functional paradigm.",
     ],
     bg: "#78286C",
     text: {primary: "#ffffff", secondary: "rgba(1,1,1,0.5)"}
@@ -87,7 +84,7 @@ const items = [
     title: "C, C++",
     description: "Low Level Programming",
     content: [
-      "I've worked with C extensively throughout University, particularly on low-level programming courses such as Operating Systems. I am familiar with kernel development in Linux, and have an understanding of low-level computing."
+      "I've worked with C extensively throughout University, particularly on large codebases such as the Linux kernel, which I modified for the Operating Systems course.",
     ],
     bg: "#AABBCD",
     text: {primary: "#454545", secondary: "rgba(0,0,0,0.4)"}

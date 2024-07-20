@@ -35,8 +35,8 @@ const PortfolioCard = ({ title, author, date, subtitle, id, link, size, classNam
   
           <div className="text-right w-full">
             <div className="text-xl font-bold">
-              {title.map((line) => (
-                <span>{line} <br /></span>
+              {title.map((line, index) => (
+                <span key={index}>{line} <br /></span>
               ))}
             </div>
   
@@ -58,15 +58,15 @@ const PortfolioCard = ({ title, author, date, subtitle, id, link, size, classNam
       <Link href={link}>
         <div className={`w-[300px] h-[424px] bg-projectCard text-projectCard-primary flex flex-col justify-between p-10 text-right items-end ${className}`}>
           <div className="text-projectCard-secondary text-xs text-right">
-            {subtitle.map((line) => (
-              <span>{line} <br /></span>
+            {subtitle.map((line, index) => (
+              <span key={index}>{line} <br /></span>
             ))}
           </div>
   
           <div className="text-right w-full">
             <div className="text-2xl font-bold">
-              {title.map((line) => (
-                <span>{line} <br /></span>
+              {title.map((line, index) => (
+                <span key={index}>{line} <br /></span>
               ))}
             </div>
   
@@ -88,15 +88,15 @@ const PortfolioCard = ({ title, author, date, subtitle, id, link, size, classNam
       <Link href={link}>
         <div className={`md:w-[450px] w-[300px] md:h-[636.3px] h-[424px] bg-projectCard text-projectCard-primary flex flex-col justify-between md:p-12 p-10 text-right items-end ${className}`}>
           <div className="text-projectCard-secondary text-xs text-right">
-            {subtitle.map((line) => (
-              <span>{line} <br /></span>
+            {subtitle.map((line, index) => (
+              <span key={index}>{line} <br /></span>
             ))}
           </div>
   
           <div className="text-right w-full">
             <div className="md:text-4xl text-2xl font-bold">
-              {title.map((line) => (
-                <span>{line} <br /></span>
+              {title.map((line, index) => (
+                <span key={index}>{line} <br /></span>
               ))}
             </div>
   
@@ -118,15 +118,15 @@ const PortfolioCard = ({ title, author, date, subtitle, id, link, size, classNam
       <Link href={link}>
         <div className={`md:w-[500px] w-[300px] md:h-[707px] h-[424px] bg-projectCard text-projectCard-primary flex flex-col justify-between md:p-12 p-10 text-right items-end ${className}`}>
           <div className="text-projectCard-secondary md:text-sm text-xs text-right">
-            {subtitle.map((line) => (
-              <span>{line} <br /></span>
+            {subtitle.map((line, index) => (
+              <span key={index}>{line} <br /></span>
             ))}
           </div>
   
           <div className="text-right w-full">
             <div className="md:text-4xl text-2xl font-bold">
-              {title.map((line) => (
-                <span>{line} <br /></span>
+              {title.map((line, index) => (
+                <span key={index}>{line} <br /></span>
               ))}
             </div>
   

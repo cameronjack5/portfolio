@@ -172,29 +172,28 @@ export const BentoGridItem = ({
       {/* FLIP SIDE */}
       <div
         className={cn(
-          "overflow-hidden relative z-50 row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 pl-6 border border-transparent flex flex-col",
+          "overflow-hidden relative z-50 row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-3 pl-4 border border-transparent",
           className, bg, `${!isFlipped && "hidden"}`,
-          `${(id === 5 || id === 6) && "p-2 pl-3 h-[300px] w-[200px]"}`,
-          `${(id === 1 || id === 2 || id === 3) && "h-[400px]"}`
         )}
         onMouseEnter={() => handleMouseEnter()}
         onMouseLeave={() => handleOnMouseLeave()}
       >
-        <div>
-          
+        <div className="relative z-50 float-right opacity-100 border border-[#eeeeee] rounded-full">
+          <div>
+            <div onClick={() => handleOpenCard(id)} className="z-50 w-[34px] h-[34px] rounded-[50%] bg-white hover:bg-[#eeeeee] hover:cursor-pointer opacity-50 flex items-center justify-center">
+              <FaPlus className="opacity-100 z-20 text-[#454545] rotate-45" />
+            </div>
+          </div>
         </div>
-        <div className="z-10 absolute top-3 right-3 opacity-100 border border-[#eeeeee] rounded-full">
-          <div className=""><div onClick={() => handleOpenCard(id)} className="w-[34px] h-[34px] rounded-[50%] bg-white hover:bg-[#eeeeee] hover:cursor-pointer opacity-50 flex items-center justify-center"><FaPlus className="opacity-100 z-20 text-[#454545] rotate-45" /></div></div>
-        </div>
-        <div className={`z-10 w-[88%] ${titleText} ${(id === 5 || id === 6) && "clear-right"}`}>
-          <div className={`text-sm font-medium leading-tight ${subtitleText}`}>
-            {content && content.map((paragraph) => (
-              <p className="pb-2">{paragraph}</p>
+        <div className={`z-10 ${titleText}`}>
+          <div className={`font-medium leading-tight ${subtitleText} ${(id === 5 || id === 6) ? "text-xs" : "text-sm"}`}>
+            {content && content.map((paragraph, index) => (
+              <p key={index} className="pb-2">{paragraph}</p>
             ))}
           </div>
         </div>
-        
       </div>
+
     </>
       
   );
